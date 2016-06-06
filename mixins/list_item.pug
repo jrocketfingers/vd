@@ -1,8 +1,8 @@
-mixin list_item(img, text)
+mixin list_item(img, text, link)
     .ui.grid
         .five.wide.column
-            a.ui.medium.image
-                img(src='http://placehold.it/350x350')
+            a.ui.medium.image(href=link)
+                img(src=img)
         .eleven.wide.column.list.description
             .ui.segment
                 p
