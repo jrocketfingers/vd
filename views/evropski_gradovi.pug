@@ -1,2 +1,11 @@
 extends /layouts/layout
+include /mixins/lorem
+include /mixins/list_item
+include /mixins/breadcrumbs
+
+append body
+    #content.ui.container
+        +breadcrumbs(['Home', 'Evropski gradovi'])
+        +list_item("/img/cities/ceska.jpg", "", "cities/ceska.html")
+        +list_item("/img/cities/italija.jpg", "", "cities/italija.html")
 
