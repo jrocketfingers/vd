@@ -1,0 +1,16 @@
+mixin fancybox(img)
+    a.fancybox(rel="group", href=img)
+        img(src=img)
+
+append head
+    link(rel="stylesheet", type="text/css", href="/js/fancybox/source/jquery.fancybox.css")
+    script(src="/js/fancybox/source/jquery.fancybox.js")
+
+append footerscripts
+    script.
+        $(document).ready(function() {
+            $(".fancybox").fancybox({
+                width: 500,
+                height: 500
+            });
+        });
