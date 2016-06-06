@@ -1,1 +1,10 @@
 extends /layouts/layout
+include /mixins/lorem
+include /mixins/list_item
+include /mixins/breadcrumbs
+
+append body
+    #content.ui.container
+        +breadcrumbs(['Home', 'Summer', 'Spanija'])
+        +list_item("/img/summer/spanija/lioretdemar.jpg", "", "/summer/spanija/costabrava.html")
+

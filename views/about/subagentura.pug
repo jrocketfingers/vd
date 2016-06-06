@@ -1,2 +1,10 @@
 extends /layouts/layout
+include /mixins/lorem
+include /mixins/list_item
+include /mixins/breadcrumbs
+
+append body
+    #content.ui.container
+        +breadcrumbs(['Home', 'About'])
+        +list_item("","","")
 
