@@ -31,7 +31,7 @@ gulp.task('views', function () {
     return gulp.src(viewsDir + '/**/*.pug')
         .pipe(pug({
             basedir: path.resolve()
-        })).on('error', gutil.log)
+        }).on('error', gutil.log))
         .pipe(gulp.dest(targetHtmlDir))
         .pipe(notify('Pugs compiled'))
         .pipe(connect.reload());
