@@ -1,5 +1,9 @@
 mixin fancybox(img)
-    a.fancybox(rel="group", href=img)
+    a.ui.massive.image.fancybox(rel="group", href=img)
+        img(src=img)
+
+mixin fancybox_small(img)
+    a.ui.large.image.fancybox(rel="group", href=img)
         img(src=img)
 
 append head
@@ -9,8 +13,6 @@ append head
 append footerscripts
     script.
         $(document).ready(function() {
-            $(".fancybox").fancybox({
-                width: 500,
-                height: 500
-            });
+            $(".fancybox").fancybox();
         });
+

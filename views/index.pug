@@ -1,7 +1,16 @@
-extends /layouts/layout
+extends /layouts/detail
 include /mixins/fancybox
 
-block body
-    .ui.container
-        +fancybox("/img/blue.jpg")
+block title
+    | Lefkada
+
+block jumbo
+    +fancybox('/img/cities/ceska.jpg')
+
+block description
+    - var images = ['/img/cities/ceska.jpg', '/img/cities/ceska.jpg', '/img/cities/ceska.jpg', '/img/cities/ceska.jpg']
+    .ui.row
+        each image in images
+            .ui.column
+                +fancybox_small(image)
 

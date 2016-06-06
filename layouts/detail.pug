@@ -1,0 +1,20 @@
+extends /layouts/layout
+
+block body
+    #content.ui.container
+        .ui.stackable.left.aligned.three.column.centered.grid
+            .ui.row
+                h1#title
+                    block title
+                        | Title
+
+            .ui.row
+                .ui.three.columns.wide
+                    block jumbo
+
+            block description
+
+            .ui.row
+                .ui.one.column.wide
+                    include /mixins/reserve_form
+

@@ -1,0 +1,8 @@
+prepend body
+    mixin translate(word)
+        - var lookup = { };
+
+        if lookup.word
+            | #{lookup.word}
+        else
+            | #{word}
