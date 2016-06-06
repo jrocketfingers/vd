@@ -1,1 +1,13 @@
 extends /layouts/layout
+include /mixins/lorem
+include /mixins/list_item
+include /mixins/breadcrumbs
+
+append body
+    #content.ui.container
+        +breadcrumbs(['Home', 'Zimovanje', 'Srbija'])
+        +list_item("/img/zimovanja/srbija/grand.jpg", "", "/zimovanja/srbija/grand.html")
+        +list_item("/img/zimovanja/srbija/jat.jpg", "", "/zimovanja/srbija/jat-kopaonik.html")
+        +list_item("/img/zimovanja/srbija/konaci.jpg", "", "/zimovanja/srbija/konaci.html")
+        +list_item("/img/zimovanja/srbija/satelit.jpg", "", "/zimovanja/srbija/satelit-zlatibor.html")
+

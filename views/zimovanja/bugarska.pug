@@ -1,1 +1,11 @@
 extends /layouts/layout
+include /mixins/lorem
+include /mixins/list_item
+include /mixins/breadcrumbs
+
+append body
+    #content.ui.container
+        +breadcrumbs(['Home', 'Zimovanje', 'Bugarska'])
+        +list_item("/img/zimovanja/bugarska/bansko.jpg", "", "/zimovanja/bugarska/bansko.html")
+        +list_item("/img/zimovanja/bugarska/borovec.jpg", "", "/zimovanja/bugarska/borovec.html")
+

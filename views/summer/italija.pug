@@ -1,1 +1,11 @@
 extends /layouts/layout
+include /mixins/lorem
+include /mixins/list_item
+include /mixins/breadcrumbs
+
+append body
+    #content.ui.container
+        +breadcrumbs(['Home', 'Summer', 'Italija'])
+        +list_item("/img/summer/italija/rimini.jpg", "", "/summer/italija/rimini.html")
+        +list_item("/img/summer/italija/sicilija.jpg", "", "/summer/italija/sicilija.html")
+

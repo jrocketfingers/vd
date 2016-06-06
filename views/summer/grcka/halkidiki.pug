@@ -1,1 +1,11 @@
 extends /layouts/layout
+include /mixins/lorem
+include /mixins/list_item
+include /mixins/breadcrumbs
+
+append body
+    #content.ui.container
+        +breadcrumbs(['Home', 'Summer', 'Grcka', 'Halkidiki'])
+        +list_item("/img/summer/grcka/halkidiki/hanioti.jpg", "", "/summer/grcka/halkidiki/hanioti.html")
+        +list_item("/img/summer/grcka/halkidiki/pefkohori.jpg", "", "/summer/grcka/halkidiki/pefkohori.html")
+
