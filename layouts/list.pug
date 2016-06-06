@@ -1,0 +1,10 @@
+extends layout
+include ../mixins/lorem
+include ../mixins/list_item
+
+block body
+    #content.ui.container
+        +list_item("", "test")
+        +list_item("", "test")
+        +list_item("", "test")
+        +list_item("", "test")

@@ -1,0 +1,9 @@
+mixin list_item(img, text)
+    .ui.grid
+        .five.wide.column
+            a.ui.medium.image
+                img(src='http://placehold.it/350x350')
+        .eleven.wide.column.list.description
+            .ui.segment
+                p
+                    +lipsum(10, "sentences")
