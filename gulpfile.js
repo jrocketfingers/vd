@@ -5,6 +5,7 @@ var notify = require('gulp-notify');
 var less = require('gulp-less');
 var minifyCSS = require('gulp-minify-css');
 var connect = require('gulp-connect');
+var path = require('path');
 
 var viewsDir = 'views';
 var lessDir = 'less';
@@ -28,7 +29,9 @@ gulp.task('css', function () {
 
 gulp.task('views', function () {
     return gulp.src(viewsDir + '/**/*.pug')
-        .pipe(pug()).on('error', gutil.log)
+        .pipe(pug({
+            basedir: path.resolve()
+        })).on('error', gutil.log)
         .pipe(gulp.dest(targetHtmlDir))
         .pipe(notify('Pugs compiled'))
         .pipe(connect.reload());
