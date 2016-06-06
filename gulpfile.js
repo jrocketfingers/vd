@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var pug = require('gulp-pug');
+var pugInheritance = require('gulp-pug-inheritance');
 var gutil = require('gulp-util');
 var notify = require('gulp-notify');
 var less = require('gulp-less');
@@ -28,6 +29,7 @@ gulp.task('css', function () {
 
 gulp.task('views', function () {
     return gulp.src(viewsDir + '/**/*.pug')
+        .pipe(pugInheritance({basedir: '/'}))
         .pipe(pug()).on('error', gutil.log)
         .pipe(gulp.dest(targetHtmlDir))
         .pipe(notify('Pugs compiled'))
