@@ -1,9 +1,11 @@
 extends layout
 include ../mixins/lorem
 include ../mixins/list_item
+include ../mixins/breadcrumbs
 
-block body
+append body
     #content.ui.container
+        +breadcrumbs(['Home', 'List'])
         +list_item("", "test")
         +list_item("", "test")
         +list_item("", "test")

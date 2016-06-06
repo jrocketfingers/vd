@@ -1,0 +1,8 @@
+mixin breadcrumbs(sections)
+    .ui.segment
+        .ui.huge.breadcrumb
+            each key, index in sections
+                a.section #{key}
+                if index < sections.length - 1
+                    i.right.chevron.icon.divider
+
