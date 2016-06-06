@@ -19,7 +19,7 @@ gulp.task('webserver', function() {
 });
 
 gulp.task('css', function () {
-    return gulp.src(lessDir + '/*.less')
+    return gulp.src(lessDir + '/**/*.less')
         .pipe(less({ style: 'compressed' }).on('error', gutil.log))
         .pipe(gulp.dest(targetCSSDir))
         .pipe(notify('CSS minified'))
@@ -27,7 +27,7 @@ gulp.task('css', function () {
 });
 
 gulp.task('views', function () {
-    return gulp.src(viewsDir + '/*.pug')
+    return gulp.src(viewsDir + '/**/*.pug')
         .pipe(pug()).on('error', gutil.log)
         .pipe(gulp.dest(targetHtmlDir))
         .pipe(notify('Pugs compiled'))
