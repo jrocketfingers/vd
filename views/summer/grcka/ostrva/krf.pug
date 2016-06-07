@@ -1,2 +1,17 @@
-extends /layouts/layout
+extends /layouts/detail
+include /mixins/fancybox
+
+block title
+    | Krf
+
+
+block jumbo
+    +fancybox('/img/summer/grcka/ostrva/krf/1.jpg')
+
+block description
+    - var images = ['/img/summer/grcka/ostrva/krf/1.jpg', '/img/summer/grcka/ostrva/krf/2.jpg', '/img/summer/grcka/ostrva/krf/3.jpg', '/img/summer/grcka/ostrva/krf/4.jpg']
+    .ui.row
+        each image in images
+            .ui.column
+                +fancybox_small(image)
 

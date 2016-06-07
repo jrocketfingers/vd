@@ -1,2 +1,17 @@
-extends /layouts/layout
+extends /layouts/detail
+include /mixins/fancybox
+
+block title
+    | Budva
+
+
+block jumbo
+    +fancybox('/img/summer/crnagora/budva/1.jpg')
+
+block description
+    - var images = ['/img/summer/crnagora/budva/1.jpg', '/img/summer/crnagora/budva/2.jpg', '/img/summer/crnagora/budva/3.jpg']
+    .ui.row
+        each image in images
+            .ui.column
+                +fancybox_small(image)
 

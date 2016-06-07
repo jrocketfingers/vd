@@ -1,2 +1,17 @@
-extends /layouts/layout
+extends /layouts/detail
+include /mixins/fancybox
+
+block title
+    | Costa Brava \ Lioret De Mar
+
+
+block jumbo
+    +fancybox('/img/summer/spanija/lioretdemar/1.jpg')
+
+block description
+    - var images = ['/img/summer/spanija/lioretdemar/1.jpg', '/img/summer/spanija/lioretdemar/2.jpg', '/img/summer/spanija/lioretdemar/3.jpg']
+    .ui.row
+        each image in images
+            .ui.column
+                +fancybox_small(image)
 
