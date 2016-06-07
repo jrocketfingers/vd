@@ -1,20 +1,51 @@
 extends /layouts/layout
 
 block body
-    #content.ui.container
-        .ui.stackable.left.aligned.three.column.centered.grid
-            .ui.row
+    template#reservation-template
+        .ui.column
+            .ui.segment
+                h2.name
+                p.address
+                p.start_date
+                p.end_date
+
+    #content.ui.stackable.grid.container
+        .ui.centered.row
+            .ui.column
                 h1#title
                     block title
                         | Title
 
-            .ui.row
-                .ui.three.columns.wide
-                    block jumbo
+        .ui.centered.row
+            block jumbo
 
-            block description
+        block description
 
-            .ui.row
-                .ui.one.column.wide
-                    include /mixins/reserve_form
+        .ui.sixteen.wide.column
+            .ui.segment
+                h1 Rezervacije
+                .ui.stackable.three.column.wide.grid#reservations
 
+        .ui.centered.row
+            .ui.eight.wide.column
+                include /mixins/reserve_form
+
+append footerscripts
+    script.
+        $(function() {
+            var reservations_json = localStorage.getItem("reservations") || "[]";
+            var reservations = JSON.parse(reservations_json);
+
+            $.each(reservations, function(i, reservation) {
+                var t = document.querySelector("#reservation-template");
+
+                var clone = document.importNode(t.content, true);
+
+                clone.querySelector(".name").innerHTML = reservation.name;
+                clone.querySelector(".address").innerHTML = reservation.address;
+                clone.querySelector(".start_date").innerHTML = reservation.start_date;
+                clone.querySelector(".end_date").innerHTML = reservation.end_date;
+
+                document.querySelector("#reservations").appendChild(clone);
+            });
+        });

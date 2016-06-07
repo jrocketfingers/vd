@@ -1,5 +1,6 @@
 extends /layouts/detail
 include /mixins/fancybox
+include /mixins/lorem
 
 block title
     | Lefkada
@@ -8,9 +9,13 @@ block jumbo
     +fancybox('/img/cities/ceska.jpg')
 
 block description
-    - var images = ['/img/cities/ceska.jpg', '/img/cities/ceska.jpg', '/img/cities/ceska.jpg', '/img/cities/ceska.jpg']
     .ui.row
-        each image in images
-            .ui.column
-                +fancybox_small(image)
+        .ui.segment
+            h1 O odmaralistu
+            +lipsum(20, "sentences")
 
+    .ui.row
+        - var images = ['/img/cities/ceska.jpg', '/img/cities/ceska.jpg', '/img/cities/ceska.jpg', '/img/cities/ceska.jpg']
+        each image in images
+            .ui.four.wide.column
+                +fancybox_small(image)

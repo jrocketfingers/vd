@@ -1,15 +1,47 @@
 .ui.container
     .ui.segment
-        #reserve.ui.form
+        h1 Reservisi termin
+        form#reserve.ui.form(name="reservation")
             .field
                 label Name
                 input(type="text" name="name" placeholder="Name")
             .field
                 label Address
-                input(type="text" name="name" placeholder="Name")
+                input(type="text" name="address" placeholder="Address")
             .field
-                label Date
-                input(type="date" name="date" placeholder="Date")
+                label Date Start
+                input(type="date" name="start_date" placeholder="Start")
 
-            button.ui.button(type="submit", onclick="reserve()") Submit
+            .field
+                label Date End
+                input(type="date" name="end_date" placeholder="End")
 
+            button.ui.blue.submit.button(onclick="reserve()") Submit
+
+append footerscripts
+    script.
+        function reserve() {
+            var $el = $("#reserve");
+            if(!$el.form("is valid"))
+                return;
+
+            var data = $el.form("get values");
+            var reservations_json = localStorage.getItem("reservations") || "[]";
+            var reservations = JSON.parse(reservations_json);
+
+            reservations.push(data);
+
+            localStorage.setItem("reservations", JSON.stringify(reservations));
+        };
+
+        $(function() {
+            var $el = $("#reserve");
+            $el.form({
+                fields: {
+                    name: 'empty',
+                    address: 'empty',
+                    start_date: 'empty',
+                    end_date: 'empty'
+                }
+            })
+        });
