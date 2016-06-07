@@ -1,2 +1,17 @@
-extends /layouts/layout
+extends /layouts/detail
+include /mixins/fancybox
+
+block title
+    | lefkada
+
+
+block jumbo
+    +fancybox('/img/summer/grcka/ostrva/lefkada/1.jpg')
+
+block description
+    - var images = ['/img/summer/grcka/ostrva/lefkada/1.jpg', '/img/summer/grcka/ostrva/lefkada/2.jpg', '/img/summer/grcka/ostrva/lefkada/3.jpg', '/img/summer/grcka/ostrva/lefkada/4.jpg']
+    .ui.row
+        each image in images
+            .ui.column
+                +fancybox_small(image)
 

@@ -1,2 +1,17 @@
-extends /layouts/layout
+extends /layouts/detail
+include /mixins/fancybox
+
+block title
+    | Rimini
+
+
+block jumbo
+    +fancybox('/img/summer/italija/rimini/1.jpg')
+
+block description
+    - var images = ['/img/summer/italija/rimini/1.jpg', '/img/summer/italija/rimini/2.jpg', '/img/summer/italija/rimini/3.jpg']
+    .ui.row
+        each image in images
+            .ui.column
+                +fancybox_small(image)
 
