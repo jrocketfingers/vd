@@ -34,13 +34,42 @@ append footerscripts
             localStorage.setItem("reservations", JSON.stringify(reservations));
         };
 
+        function validate_less_than_field(value, identifier) {
+            var $form = $(this),
+                matchingValue;
+            
+            if($('[data-validate="'+ identifier +'"]').length > 0 ) {
+                matchingValue = $('[data-validate="'+ identifier +'"]').val();
+            }
+            else if($('#' + identifier).length > 0) {
+                matchingValue = $('#' + identifier).val();
+            }
+            else if($('[name="' + identifier +'"]').length > 0) {
+                matchingValue = $('[name="' + identifier + '"]').val();
+            }
+            else if( $('[name="' + identifier +'[]"]').length > 0 ) {
+                matchingValue = $('[name="' + identifier +'[]"]');
+            }
+
+            return (matchingValue !== undefined) ? value < matchingValue : false;
+        }
+
+        $.fn.form.settings.rules['lessThanField'] = validate_less_than_field;
+        // trazi kako da dobijemo format datuma 06-08-2016, toLocaleDateTime daje 08/06/2016, il nvm, mozda mozemo date?
+
+        function validate_in_the_future(value) {
+            debugger;
+        }
+
+        $.fn.form.settings.rules['inFuture'] = validate_in_the_future;
+
         $(function() {
             var $el = $("#reserve");
             $el.form({
                 fields: {
                     name: 'empty',
                     address: 'empty',
-                    start_date: 'empty',
+                    start_date: ['empty', 'lessThanField[end_date]', 'inFuture'],
                     end_date: 'empty'
                 }
             })
